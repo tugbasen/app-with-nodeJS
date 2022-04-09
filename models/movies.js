@@ -15,5 +15,5 @@ const moviesSchema = mongoose.Schema({
     vote_average: { type: Number, required: true },
 })
 
-module.exports = mongoose.model('Movies', moviesSchema);
+module.exports = mongoose.model('movies', moviesSchema);
 

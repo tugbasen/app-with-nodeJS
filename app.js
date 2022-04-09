@@ -2,14 +2,15 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const mongodb = require('./mongoose');
-const moviesRoutes = require('./routes/movie-routes');
-const movieDetailRoutes = require('./routes/movie-detail-routes')
 
 const app = express()
 app.use(bodyParser.json())
 
-app.use('/', mongodb.addedMovie, moviesRoutes)
-app.use('/detail', movieDetailRoutes)
+ app.get('/', mongodb.getMovies)
+app.post('/', mongodb.addMovie)
+
+app.get('/detail', mongodb.getMovieDetail)
+app.post('/detail', mongodb.addMovieDetail)
 
 
 
